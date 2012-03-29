@@ -1,0 +1,193 @@
+----- C131-2/vsh ------------------------------------------------
+things XML struktūra:
+    atributai:
+         matter     - prekės bendrinis vardass:     free-text
+         name       - prekės pavadinimass:          free-text
+         measure    - matavimo vienetas:            l kg vnt _
+         {measure}_ - kiekio alternatyvos
+         l_         - turis                         0.5 1 1.5 2 3 4 _
+         kg_        - svoris                        0.5 1 1.5 2 3 4 _
+         g_         - svoris                        50 100 200 300 400 500 _
+         vnt_       - vienetai                      1 2 5 10 20 _
+         rate       - rūšis:                        Ar 1r 2r 3r
+         fatness    - riebumas:                     20% 30% 40% >50%
+         vol        - alkoholio %:                  <2% 4.5% 38%
+         kind*      - kažkokia klasifikacija:       aaa bbb xxx zzz  *-multiple choise
+<things updated="YYYY-MM-DD HH:mm">
+    <t matter="pienas" measure="l" qty="_|0.5|1|1.5|2|3|4|?" fatness="_|2.5%|3.5%">
+        <stat lastuse="YYYY-MM-DD HH:mm" updated="YYYY-MM-DD HH:mm" created="YYYY-MM-DD HH:mm" usecases="0" />
+    </t>
+    <t  matter="kefyras" measure="l" qty="_|0.5|1|1.5|2|3|4|?" fatness="_|2.5%|3.5%|" >
+        <stat lastuse="YYYY-MM-DD HH:mm" updated="YYYY-MM-DD HH:mm" created="YYYY-MM-DD HH:mm" usecases="0" />
+    </t>
+    <t  matter="jogurtas" measure="l" name="_|Vaisinis|Šokoladinis|?"  qty="_|0.5|1|1.5|2|3|4|?" fatness="_|2.5%|3.5%|">
+        <stat lastuse="YYYY-MM-DD HH:mm" updated="YYYY-MM-DD HH:mm" created="YYYY-MM-DD HH:mm" usecases="0" />
+    </t>
+    <t  matter="bulvės" measure="kg" qty="_|0.5|1|1.5|2|3|4|_" name="_|Baltos|Prūsinės">
+        <stat lastuse="YYYY-MM-DD HH:mm" updated="YYYY-MM-DD HH:mm" created="YYYY-MM-DD HH:mm" usecases="0" />
+    </t>
+    <t  matter="žirniai" measure="g" qty="_|200|400|800|?" name="_|Galinta|?" kind="_|šlifuoti|skaldyti">
+        <stat lastuse="YYYY-MM-DD HH:mm" updated="YYYY-MM-DD HH:mm" created="YYYY-MM-DD HH:mm" usecases="0" />
+    </t>
+    <t  matter="alus" measure="l" qty="_|.33|.5|1.0|1.5|?" name="_|Šaltukas|Extra|7.30|Tauras|Utenos|Kauno|Biržų|Gubernijos|Velkopopovicky Kozel|Germania||?" kind="_|stikl.but.|skardinės|bambaliai">
+        <stat lastuse="YYYY-MM-DD HH:mm" updated="YYYY-MM-DD HH:mm" created="YYYY-MM-DD HH:mm" usecases="0" />
+    </t>
+    <t  matter="ypatingasis" measure="_" qty="_|?" >
+        <stat lastuse="YYYY-MM-DD HH:mm" updated="YYYY-MM-DD HH:mm" created="YYYY-MM-DD HH:mm" usecases="0" />
+    </t>
+</things>
+
+<thingAttribsFixed seq="matter,measure" />
+<thingAttribsSelectOne seq="name,qty,fatness,rate,vol" />
+<thingAttribsSelectMany seq="kind" />
+<thingAttribsTextOnly seq="note" />
+<orderAttribs seq="matter,amount,rate,fatness,vol,kind,note" />
+
+---------------
+
+order XML struktūra:
+    atributai:
+         status     - pirkimo statusas              2: dar nepirkta, 1: dalinai nupirkta: 0: nupirkta
+         matter     - prekė:                        {matter}[: {name}]
+         amount     - kiekis:                       {NUMBER} {measure}
+         rate       - rūšis:                        kaip 'things'
+         fatness    - riebumas:                     kaip 'things'
+         vol        - alkoholio %:                  kaip 'things'
+         kind       - kažkokia klasifikacija:       aaa bbb xxx zzz
+         note       - prekės apibūdinimas:          free-text
+
+<order created="2012-01-26 22:46">
+    <t  s="2" matter="pienas" amount="1 l" fatness="2.5%" />
+    <t  s="2" matter="jogurtas: Vaisinis" amount="0.5 l" />
+    <t  s="2" matter="bulvės: Prūsinės" amount="1 kg" rate="1r" />
+    <t  s="2" matter="žirniai: Galinta" amount="400 g" kind="skaldyti"/>
+</order>
+
+----- C203-5/vsh ------------------------------------------------
+Susid8riau su keista problema - Scala kodas teisingai veikia veikia įprastinėje aplinkoje, o apk'e neveikia:
+
+
+  // http://stackoverflow.com/questions/2569580/how-to-change-attribute-on-scala-xml-element ... ... ...
+  implicit def addGoodCopyToAttribute(attr: Attribute) = new {
+    def goodCopy(key: String = attr.key, value: Any = attr.value): Attribute =
+      Attribute(attr.pre, key, Text(value.toString), attr.next)
+  }
+  implicit def iterableToMetaData(items: Iterable[MetaData]): MetaData = {
+    items match {
+      case Nil => Null
+      case head :: tail => head.copy(next = iterableToMetaData(tail))
+    }
+  }
+  def changeStatusInternal(e: Elem, delta: Int): Elem = {
+    e match {
+      case elem: Elem => elem.copy(attributes =
+        //case elem: Elem =>
+        //  val elemAttrs = elem.attributes/*.toList*/
+        //  println (elemAttrs.toString())
+        //  println (elem.attribute("s").toString())
+        //  for (attr <- elemAttrs) println(attr.toString)
+        for (attr <- elem.attributes) yield attr match {
+          case attr@Attribute("s", _, _) =>
+            attr.goodCopy(value = attr.value.text.toInt + delta)     // <--
+            // ...
+            // Caused by: java.lang.NoSuchMethodException: goodCopy$default$1
+            //   at java.lang.ClassCache.findMethodByName(ClassCache.java:308)
+            //   at java.lang.Class.getMethod(Class.java:985)
+            // ...
+          case other => other
+        }
+      )
+      case _ => e
+    }
+  }
+
+Dėl to tenka keisti XML struktūrą: s attribą nukelti į <t> tag'o reikšmę:
+ e.g.   <t  s="2" matter="pienas" amount="1 l" fatness="2.5%" /> -->
+        <t matter="pienas" amount="1 l" fatness="2.5%" >2</t>
+
+<order created="2012-01-26 22:46">
+    <t matter="pienas" amount="1 l" fatness="2.5%">2</t>
+    <t matter="jogurtas: Vaisinis" amount="0.5 l">2</t>
+    <t matter="bulvės: Prūsinės" amount="1 kg" rate="1r">2</t>
+    <t matter="žirniai: Galinta" amount="400 g" kind="skaldyti">2</t>
+</order>
+
+<things>
+    <t><matter></matter><measure></measure><fatness></fatness><name></name><kind></kind<freq>0</freq></t/>
+    <t><matter>pienas</matter><measure>ltr</measure><fatness>_;2.5%;3.5%</fatness><kind></kind<freq>0</freq></t>
+    <t><matter>kefyras</matter><measure>ltr</measure><fatness>2.5%;3.5%</fatness><name></name><kind></kind<freq></freq></t>
+    <t><matter>jogurtas</matter><measure>ltr</measure><fatness></fatness><name>Vaisinis;Šokoladinis</name><kind></kind<freq></freq></t>
+    <t><matter>bulvės</matter><measure>kg</measure><fatness></fatness><name>Baltos;Prūsinės</name><kind></kind<freq></freq></t>
+    <t><matter>žirniai</matter><measure>g</measure><fatness></fatness><name>Galinta</name><kind>šlifuoti;skaldyti</kind<freq></freq></t>
+    <!--<t  matter="kefyras" measure="ltr" fatness="_;2.5%;3.5%;" />
+    <t  matter="jogurtas" measure="ltr" name="_;Vaisinis;Šokoladinis;"/>
+    <t  matter="bulvės" measure="kg" name="_;Baltos;Prūsinės;"/>
+    <t  matter="žirniai" measure="g" name="_;Galinta;" kind="_;šlifuoti;skaldyti"/>-->
+</things>
+
+
+----- C205-7/vsh ------------------------------------------------
+Po ilgoko apmąstymo nutariau visgi bandyti panaudoti
+  // http://stackoverflow.com/questions/2569580/how-to-change-attribute-on-scala-xml-element ... ... ...
+atsakymo pirmos alternatyvos kodą. Tai leis grižti prie  [C131-2/vsh] duomenų formato.
+
+----- C211-6/vsh ------------------------------------------------
+Kuriu ScalAndroid apk pagal
+    http://www.ibm.com/developerworks/opensource/library/os-eclipse-scala/  IntelliJ vietoje Eclipse
+
+    - right-mouse on scalandoid-node-lt --> New --> Module --> "Add Module" panel opens
+    - "Add Module" --> Create from scratch --> Next -->
+    -  * --> type: Module Name [UnitsConverter];
+            select: [Maven Module] --> Next
+    -  * --> check on [v] Create from archetype and wait for of archetypes;
+            select: [scala-archetype-simple] --> Finish ==>  the "UnitsConverter" modules is cteated
+    - modify module POM file to:
+        ------------------------
+        <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+        <parent>
+            <artifactId>scala-samples</artifactId>
+            <groupId>lt.node.scandra.samples</groupId>
+            <version>1.0.0-SNAPSHOT</version>
+        </parent>
+        <modelVersion>4.0.0</modelVersion>
+        <!--<groupId>lt.node.scandra.samples</groupId>-->
+        <artifactId>UnitsConverter</artifactId>
+        <name>${project.artifactId}</name>
+        <description>Michael Galpin's ScalaAndroid sample</description>
+        <packaging>apk</packaging>
+        <inceptionYear>2012</inceptionYear>
+        <properties/>
+        <repositories/>
+        <pluginRepositories/>
+        <dependencies/>
+        <build/>
+        </project>
+    ------------------------
+    - create Android project structure a la 'pirkimai'
+
+----- C219-1/vsh ------------------------------------------------
+ Android ListView with multiple select
+      http://stackoverflow.com/questions/3825645/android-listview-with-multiple-select-and-custom-adapter
+ MultiChoice Preference Widget for Android
+      http://blog.350nice.com/wp/archives/240
+
+----- C223-4/vsh ------------------------------------------------
+ Making it easier to add attributes to an XML element
+      http://www.scalaclass.com/node/62
+ Bug in Scala XMLs Attribute remove?
+      http://comments.gmane.org/gmane.comp.lang.scala.user/49642
+      ... ... ...
+import scala.xml._
+val x = <el a="a" b="b" c="c" />
+println("x " + x)
+val y = x.copy(attributes = x.attributes.remove("a"))
+println("y " + y)
+// arba
+val z = x.copy( attributes = x.attributes.find(_.key == "a").get.remove("a"))
+println("z " + z)
+      ... ... ...
+
+http://saigeethamn.blogspot.com/2010/12/creating-android-ui-programmatically.html
+
+----- CmDD-d/vsh ------------------------------------------------

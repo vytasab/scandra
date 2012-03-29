@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                     android:layout_width="fill_parent" android:layout_height="fill_parent"
+                     android:textSize="13px" android:textStyle="bold"
+                     android:layout_centerVertical="true"
+                     android:textColor="#000"
+                     android:padding="10dip">
+</TextView>

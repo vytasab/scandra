@@ -1,0 +1,6 @@
+<order created="2012-01-26 22:46">
+    <t s="2" matter="pienas" measure="l" qty="1" fatness="2.5%" />
+    <t s="2" matter="jogurtas: Vaisinis" measure="l" qty="0.5" />
+    <t s="2" matter="bulvės: Prūsinės" measure="kg" qty="1" rate="1r" />
+    <t s="2" matter="žirniai: Galinta" measure="g" qty="400" kind="skaldyti"/>
+</order>

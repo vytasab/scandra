@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright (C) 2009 Jayway AB
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>lt.node.scandra</groupId>
+    <artifactId>ScandraNodeLt</artifactId>
+    <version>1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Android-Scala real apk's using maven-android-plugin</name>
+    <inceptionYear>2010</inceptionYear>
+    <modules>
+        <!--module>button4Toast</module-->
+        <!--module>flashLight</module-->
+        <!--module>fileExplorer</module-->
+        <module>pirkimai</module>
+        <!--module>searchableDictionary</module-->
+        <!--module>UnitsConverter</module-->
+    </modules>
+
+    <properties>
+        <scala.version>2.8.0</scala.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <scm.branch>master</scm.branch>
+        <maven.compiler.source>1.5</maven.compiler.source>
+        <maven.version>2.2.1</maven.version>
+        <repository.updatePolicy>daily</repository.updatePolicy>
+        <!-- daily never
+        updatePolicy: The frequency for downloading updates - can be
+        "always", "daily" (default), "interval:XXX" (in minutes) or "never"
+        (only if it doesn't exist locally). -->
+        <proguard.obfuscate>true</proguard.obfuscate>
+        <proguard.skip>false</proguard.skip>
+    </properties>
+
+    <!-- http://progit.org/ -->
+    <!--<scm>
+        <url>http://github.com/vytasab/scandra/${scm.branch}</url>
+        <connection>scm:git:git://github.com/vytasab/scandra.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/vytasab/scandra.git</developerConnection>
+    </scm>-->
+    <!--<scm>
+        <url>http://github.com/jayway/maven-android-plugin-fileexplorer/tree/${scm.branch}</url>
+        <connection>scm:git:git://github.com/jayway/maven-android-plugin-fileexplorer.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/jayway/maven-android-plugin-fileexplorer.git</developerConnection>
+    </scm>-->
+
+    <!--<issueManagement>
+        <system>Google Code Issue Tracking</system>
+        <url>http://code.google.com/p/maven-android-plugin/issues/list</url>
+    </issueManagement>-->
+
+    <!--licenses>
+        <license>
+            <name>Apache 2.0</name>
+            <url>LICENSE.txt</url>
+        </license>
+    </licenses-->
+
+    <!--developers>
+        <developer>
+            <name>See homepage and mailinglist for contributors.</name>
+            <id>maven-android-plugin-project</id>
+            <url>http://code.google.com/p/maven-android-plugin</url>
+            <roles>
+                <role>Developer</role>
+                <role>Contributor</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Manfred Moser</name>
+            <email>manfred@simpligility.com</email>
+            <url>http://www.simpligility.com/</url>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers-->
+
+    <!--mailingLists>
+        <mailingList>
+            <name>Maven Android Developers</name>
+            <archive>http://groups.google.com/group/maven-android-developers/topics</archive>
+        </mailingList>
+    </mailingLists-->
+
+    <repositories>
+        <repository>
+            <id>scala-tools.org</id>
+            <name>Scala-tools Maven2 Repository</name>
+            <url>http://scala-tools.org/repo-releases</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>${repository.updatePolicy}</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </releases>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>scala-tools.org</id>
+            <name>Scala-tools Maven2 Repository</name>
+            <url>http://scala-tools.org/repo-releases</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>${repository.updatePolicy}</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.google.android</groupId>
+                <artifactId>android</artifactId>
+                <version>2.1_r1</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.android</groupId>
+                <artifactId>android-test</artifactId>
+                <version>2.1_r1</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-library</artifactId>
+                <version>2.8.0</version>
+            </dependency>
+
+            <!-- Test -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.8.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.scala-tools.testing</groupId>
+                <artifactId>specs_${scala.version}</artifactId>
+                <version>1.6.5</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.scalatest</groupId>
+                <artifactId>scalatest</artifactId>
+                <version>1.2</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android-test</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+        </dependency>
+
+        <!-- Test -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-tools.testing</groupId>
+            <artifactId>specs_${scala.version}</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <pluginManagement>
+            <!--<url>http://code.google.com/p/maven-android-plugin</url>-->
+            <plugins>
+                <plugin>
+                    <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                    <artifactId>maven-android-plugin</artifactId>
+                    <version>2.8.4</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>2.4.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.3.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>1.0-beta-1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.3.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.3.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-scm-plugin</artifactId>
+                    <version>1.3</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>2.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.5</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.4.3</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.5</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>1.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <!--<plugin>
+                <artifactId>maven-scm-plugin</artifactId>
+                <configuration>
+                    <scmVersionType>branch</scmVersionType>
+                    <scmVersion>${scm.branch}</scmVersion>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Build-Source-Version>1.5</Build-Source-Version>
+                            <Build-Target-Version>1.5</Build-Target-Version>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>[${maven.version},)</version>
+                                    <message>Check for Maven version &gt;=${maven.version} failed. Update your Maven install.</message>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
+            <plugin>
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
+                <version>2.13.1</version>
+                <executions>
+                    <execution>
+                        <id>scala-compile-first</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>scala-test-compile</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.pyx4me</groupId>
+                <artifactId>proguard-maven-plugin</artifactId>
+                <version>2.0.4</version>
+                <executions>
+                    <execution>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>proguard</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <maxMemory>256m</maxMemory>
+                    <injar>android-classes</injar>
+                    <libs>
+                        <lib>${rt.jar.path}</lib>
+                    </libs>
+                    <obfuscate>false</obfuscate>
+                    <options>
+                        <option>-keep public class * extends android.app.Activity</option>
+                        <option>-keep public class * extends android.app.Application</option>
+                        <option>-keep public class * extends android.app.Service</option>
+                        <option>-keep public class * extends android.content.BroadcastReceiver</option>
+                        <option>-keep public class * extends android.content.ContentProvider</option>
+                        <option>-dontskipnonpubliclibraryclasses</option>
+                        <option>-dontoptimize</option>
+                        <option>-printmapping map.txt</option>
+                        <option>-printseeds seed.txt</option>
+                        <option>-ignorewarnings</option>
+                    </options>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                <artifactId>maven-android-plugin</artifactId>
+                <version>2.8.4</version>
+                <!-- 3.0.0-alpha-13  2.9.0-beta-5  2.8.4  -->
+                <!-- error [2.8.4,)  -->
+                <configuration>
+                    <sdk>
+                        <platform>8</platform>
+                    </sdk>
+                    <emulator>
+                        <avd>22</avd>
+                    </emulator>
+                    <undeployBeforeDeploy>true</undeployBeforeDeploy>
+                </configuration>
+                <extensions>true</extensions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <!-- to avoid having to do symlinks to rt.jar like documented e.g. here
+            http://bruehlicke.blogspot.com/2009/11/missing-rtjar-mac-os-x-using-proguard.html
+            http://codebistro.com/2010/07/18/proguard-and-runtime-libraries-on-mac-os-x/
+            -->
+        <profile>
+            <id>linux</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+            <properties>
+                <rt.jar.path>${env.JAVA_HOME}/jre/lib/rt.jar</rt.jar.path>
+                <jsse.jar.path>${env.JAVA_HOME}/jre/lib/jsse.jar</jsse.jar.path>
+            </properties>
+        </profile>
+        <!-- mac profile has to be after unix since running on mac will trigger both -->
+        <profile>
+            <id>mac</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
+            <properties>
+                <!-- absolute path -->
+                <!--<rt.jar.path>/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/classes.jar</rt.jar.path>-->
+                <!-- or with JAVA_HOME /System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/ -->
+                <rt.jar.path>${env.JAVA_HOME}/../Classes/classes.jar</rt.jar.path>
+                <jsse.jar.path>${env.JAVA_HOME}/../Classes/jsse.jar</jsse.jar.path>
+            </properties>
+        </profile>
+        <profile>
+            <id>windows</id>
+            <activation>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <properties>
+                <rt.jar.path>${env.JAVA_HOME}/jre/lib/rt.jar</rt.jar.path>
+                <jsse.jar.path>${env.JAVA_HOME}/jre/lib/jsse.jar</jsse.jar.path>
+            </properties>
+        </profile>
+
+    </profiles>
+
+</project>

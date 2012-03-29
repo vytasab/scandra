@@ -1,0 +1,48 @@
+package lt.node.scandra.pirkimai
+
+import android.app.Activity
+import android.os.Bundle
+import android.widget.ListView
+import android.widget.SimpleAdapter
+import java.util.ArrayList
+import java.util.HashMap
+import java.util.List
+import java.util.ArrayList
+import java.util.HashMap
+import java.util.List
+import android.app.Activity
+import android.os.Bundle
+import android.widget.ListView
+import android.widget.SimpleAdapter
+
+class ListViewA extends Activity {
+  /**
+   * Called when the activity is first created.
+   */
+  override def onCreate(savedInstanceState: Bundle): Unit = {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.main)
+    var lv: ListView = findViewById(R.id.tvViewRow).asInstanceOf[ListView]
+    var from: Array[String] = Array[String]("rowid")
+    var to: Array[Int] = Array[Int](R.id.tvViewRow)
+    var fillMaps: List[HashMap[String, String]] = new ArrayList[HashMap[String, String]]
+    {
+      var i: Int = 0
+      while (i < 10) {
+        {
+          var map: HashMap[String, String] = new HashMap[String, String]
+          map.put("rowid", "" + i)
+          fillMaps.add(map)
+        }
+        ({
+          i += 1; i
+        })
+      }
+    }
+    var adapter: SimpleAdapter = new SimpleAdapter(this, fillMaps, R.layout.grid_item, from, to)
+    lv.setAdapter(adapter)
+  }
+}
+
+//}
+

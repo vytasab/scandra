@@ -1,0 +1,28 @@
+<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">-->
+
+<LinearLayout android:id="@+id/LinearMain"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- http://stackoverflow.com/questions/4355614/what-is-difference-between-id-androidlist-and-id-list -->
+    <ListView android:id="@android:id/list"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"/>
+<!-- @android:id/list is specific to ListActivity, so you do not need it
+if you are adding a ListView into any other kind of Activity.
+You should extend ListActivity if you want the user to do more than view the list.
+For example, you can override ListActivity.onListItemClick to respond
+to clicks on an item in the list.  -->
+    <!--<TextView android:id="@android:id/empty"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/no_items"/>-->
+<!--Similarly, @id/android:empty (again, without the +), is a special case for ListActivity.
+This allows you to specify an alternative view that should be displayed when your list is empty.
+That View will not be displayed when the list is populated. -->
+</LinearLayout>
+
+<!--</ScrollView>-->

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+    <!--android:text="@string/what2do"-->
+    <!--android:layout_height="wrap_content" android:layout_marginBottom="10px"-->
+    <!--android:layout_width="fill_parent"-->
+    <!-- android:height="30px" android:width="30px" -->
+	<TextView android:id="@+id/purchase_decision_item"
+        android:layout_marginLeft="20px" android:layout_marginRight="20px"
+        android:layout_marginTop="20px" android:layout_marginBottom="20px"
+        android:textSize="13px" android:textStyle="bold"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+    <!--android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+	<Button android:id="@+id/purchase_decision_done_button"
+        android:layout_marginLeft="20px" android:layout_marginRight="20px"
+        android:layout_marginTop="10px" android:layout_marginBottom="5px"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+		android:text="@string/purchase_decision_done" />
+
+	<Button android:id="@+id/purchase_decision_partially_done_button"
+        android:layout_marginLeft="20px" android:layout_marginRight="20px"
+        android:layout_marginTop="5px" android:layout_marginBottom="5px"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+		android:text="@string/purchase_decision_partially_done" />
+
+	<Button android:id="@+id/purchase_decision_revert_button"
+        android:layout_marginLeft="20px" android:layout_marginRight="20px"
+        android:layout_marginTop="5px" android:layout_marginBottom="5px"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+		android:text="@string/purchase_decision_revert" />
+
+	<!--<Button android:id="@+id/purchase_decision_cancel_button"
+        android:layout_marginLeft="20px" android:layout_marginRight="20px"
+        android:layout_marginTop="5px" android:layout_marginBottom="5px"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+		android:text="@string/purchase_decision_cancel" />-->
+
+</LinearLayout>
+
+

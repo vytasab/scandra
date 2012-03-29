@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="lt.node.scandra.pirkimai" android:versionCode="1"
+	android:versionName="1.0">
+
+    <!-- make sure Eclipse build has correct target for what you want to support too, even if using latest for dev -->
+	<uses-sdk android:minSdkVersion="4" />
+
+	<application android:icon="@drawable/icon" android:label="@string/app_name">
+		<activity android:name=".Main" android:configChanges="keyboardHidden|orientation"
+                  android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+        <activity android:name=".PreOrder" android:configChanges="keyboardHidden|orientation"
+                  android:label="@string/app_name" />
+        <activity android:name=".Order" android:configChanges="keyboardHidden|orientation"
+                  />
+        <activity android:name=".OrderNewOrResume" android:configChanges="keyboardHidden|orientation"
+                  android:label="@string/label_select" />
+        <activity android:name=".OrderMaking" android:configChanges="keyboardHidden|orientation"
+                  android:label="@string/label_order_making" />
+        <activity android:name=".OrderAttribSetting" android:configChanges="keyboardHidden|orientation"
+                  android:label="@string/label_order_attrib_setting" />
+        <activity android:name=".Purchase" android:configChanges="keyboardHidden|orientation"
+                  android:label="@string/label_purchase" />
+        <activity android:name=".PurchaseDecision" android:configChanges="keyboardHidden|orientation"
+                  android:label="@string/label_select" />
+        <activity android:name=".Templates" android:configChanges="keyboardHidden|orientation"
+                  android:label="@string/label_templates" />
+        <activity android:name=".TemplateMaking" android:configChanges="keyboardHidden|orientation"
+                  android:label="@string/label_templates_making" />
+        <activity android:name=".TemplateAttrib" android:configChanges="keyboardHidden|orientation"
+                  android:label="@string/label_template_attrib" />
+        <activity android:name=".Groups" android:configChanges="keyboardHidden|orientation"
+                  android:label="@string/label_groups" />
+	</application>
+	
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
+</manifest> 

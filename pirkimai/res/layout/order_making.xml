@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent" android:layout_height="fill_parent">
+    <!-- NO! layout_height= 0px  -->
+    <LinearLayout android:orientation="horizontal"
+                  android:layout_width="fill_parent" android:layout_height="fill_parent"
+                  android:layout_weight="1">
+        <TextView android:id="@+id/order_item_text"
+                  android:gravity="center_horizontal"
+                  android:layout_marginLeft="1px" android:layout_marginRight="1px"
+                  android:layout_marginTop="1px" android:layout_marginBottom="1px"
+                  android:textSize="13px" android:textStyle="bold"
+                  android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:layout_weight="1"/>
+    </LinearLayout>
+    <!--<LinearLayout android:orientation="horizontal"-->
+                  <!--android:layout_width="fill_parent" android:layout_height="fill_parent"-->
+                  <!--android:layout_weight="1">-->
+        <Button android:id="@+id/qty_button"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="5px" android:layout_marginRight="5px"
+                android:layout_marginTop="5px" android:layout_marginBottom="5px"
+                android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:text="@string/btnQty"
+                android:layout_weight="1"/>
+        <Button android:id="@+id/name_button"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="5px" android:layout_marginRight="5px"
+                android:layout_marginTop="5px" android:layout_marginBottom="5px"
+                android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:text="@string/btnName"
+                android:layout_weight="1"/>
+        <Button android:id="@+id/rate_button"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="5px" android:layout_marginRight="5px"
+                android:layout_marginTop="5px" android:layout_marginBottom="5px"
+                android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:text="@string/btnRate"
+                android:layout_weight="1"/>
+   <!--</LinearLayout>-->
+    <!--<LinearLayout android:orientation="horizontal"-->
+                  <!--android:layout_width="fill_parent" android:layout_height="fill_parent"-->
+                  <!--android:layout_weight="1">-->
+        <Button android:id="@+id/fatness_button"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="5px" android:layout_marginRight="5px"
+                android:layout_marginTop="5px" android:layout_marginBottom="5px"
+                android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:text="@string/btnFatness"
+                android:layout_weight="1"/>
+        <Button android:id="@+id/vol_button"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="5px" android:layout_marginRight="5px"
+                android:layout_marginTop="5px" android:layout_marginBottom="5px"
+                android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:text="@string/btnVol"
+                android:layout_weight="1"/>
+        <Button android:id="@+id/note_button"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="5px" android:layout_marginRight="5px"
+                android:layout_marginTop="5px" android:layout_marginBottom="5px"
+                android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:text="@string/btnNote"
+                android:layout_weight="1"/>
+   <!--</LinearLayout>-->
+    <!--<LinearLayout android:orientation="horizontal"-->
+                  <!--android:layout_width="fill_parent" android:layout_height="fill_parent"-->
+                  <!--android:layout_weight="1">-->
+        <Button android:id="@+id/kind_button"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="5px" android:layout_marginRight="5px"
+                android:layout_marginTop="5px" android:layout_marginBottom="5px"
+                android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:text="@string/btnKind"
+                android:layout_weight="1"/>
+        <LinearLayout android:orientation="horizontal"
+                      android:layout_width="fill_parent" android:layout_height="fill_parent"
+                      android:layout_weight="1">
+        <Button android:id="@+id/OK_button"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="5px" android:layout_marginRight="5px"
+                android:layout_marginTop="5px" android:layout_marginBottom="5px"
+                android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:text="@string/btnOK"
+                android:layout_weight="1"/>
+        <Button android:id="@+id/CANCEL_button"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="5px" android:layout_marginRight="5px"
+                android:layout_marginTop="5px" android:layout_marginBottom="5px"
+                android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:text="@string/btnCANCEL"
+                android:layout_weight="1"/>
+    </LinearLayout>
+    <!--</LinearLayout>-->
+</LinearLayout>
+
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+              <!--android:orientation="vertical"-->
+              <!--android:layout_width="fill_parent" android:layout_height="fill_parent">-->
+    <!--&lt;!&ndash; NO! layout_height= 0px  &ndash;&gt;-->
+    <!--<LinearLayout android:orientation="horizontal"-->
+                  <!--android:layout_width="fill_parent" android:layout_height="fill_parent"-->
+                  <!--android:layout_weight="1">-->
+        <!--<TextView android:id="@+id/order_item_text"-->
+                  <!--android:gravity="center_horizontal"-->
+                  <!--android:layout_marginLeft="1px" android:layout_marginRight="1px"-->
+                  <!--android:layout_marginTop="1px" android:layout_marginBottom="1px"-->
+                  <!--android:textSize="13px" android:textStyle="bold"-->
+                  <!--android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+                  <!--android:layout_weight="1"/>-->
+    <!--</LinearLayout>-->
+    <!--<LinearLayout android:orientation="horizontal"-->
+                  <!--android:layout_width="fill_parent" android:layout_height="fill_parent"-->
+                  <!--android:layout_weight="1">-->
+        <!--<Button android:id="@+id/qty_button"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+                <!--android:text="@string/btnQty"-->
+                <!--android:layout_weight="1"/>-->
+        <!--<Button android:id="@+id/name_button"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+                <!--android:text="@string/btnName"-->
+                <!--android:layout_weight="1"/>-->
+        <!--<Button android:id="@+id/rate_button"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+                <!--android:text="@string/btnRate"-->
+                <!--android:layout_weight="1"/>-->
+   <!--</LinearLayout>-->
+    <!--<LinearLayout android:orientation="horizontal"-->
+                  <!--android:layout_width="fill_parent" android:layout_height="fill_parent"-->
+                  <!--android:layout_weight="1">-->
+        <!--<Button android:id="@+id/fatness_button"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+                <!--android:text="@string/btnFatness"-->
+                <!--android:layout_weight="1"/>-->
+        <!--<Button android:id="@+id/vol_button"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+                <!--android:text="@string/btnVol"-->
+                <!--android:layout_weight="1"/>-->
+        <!--<Button android:id="@+id/note_button"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+                <!--android:text="@string/btnNote"-->
+                <!--android:layout_weight="1"/>-->
+   <!--</LinearLayout>-->
+    <!--<LinearLayout android:orientation="horizontal"-->
+                  <!--android:layout_width="fill_parent" android:layout_height="fill_parent"-->
+                  <!--android:layout_weight="1">-->
+        <!--<Button android:id="@+id/kind_button"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+                <!--android:text="@string/btnKind"-->
+                <!--android:layout_weight="1"/>-->
+        <!--<Button android:id="@+id/OK_button"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+                <!--android:text="@string/btnOK"-->
+                <!--android:layout_weight="1"/>-->
+        <!--<Button android:id="@+id/CANCEL_button"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+                <!--android:text="@string/btnCANCEL"-->
+                <!--android:layout_weight="1"/>-->
+    <!--</LinearLayout>-->
+<!--</LinearLayout>-->
+
+
+<!--&lt;!&ndash;-->
+        <!--&lt;!&ndash;-->
+        <!--<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+                     <!--android:layout_width="fill_parent"-->
+                     <!--android:layout_height="fill_parent"-->
+                     <!--android:shrinkColumns="1">-->
+            <!--<TableRow>-->
+                <!--&lt;!&ndash;<TextView android:id="@+id/order_item_text"&ndash;&gt;-->
+                          <!--&lt;!&ndash;android:layout_marginLeft="5px" android:layout_marginRight="5px"&ndash;&gt;-->
+                          <!--&lt;!&ndash;android:layout_marginTop="5px" android:layout_marginBottom="5px"&ndash;&gt;-->
+                          <!--&lt;!&ndash;android:textSize="13px" android:textStyle="bold"&ndash;&gt;-->
+                          <!--&lt;!&ndash;android:layout_width="match_parent" android:layout_height="wrap_content" />&ndash;&gt;-->
+            <!--</TableRow>-->
+            <!--<TableRow>-->
+                <!--&lt;!&ndash;<Button android:id="@+id/qty_button"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginLeft="5px" android:layout_marginRight="5px"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginTop="5px" android:layout_marginBottom="5px"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="match_parent" android:layout_height="wrap_content"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:text="@string/btnQty" />&ndash;&gt;-->
+                <!--&lt;!&ndash;<Button android:id="@+id/rate_button"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginLeft="5px" android:layout_marginRight="5px"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginTop="5px" android:layout_marginBottom="5px"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="match_parent" android:layout_height="wrap_content"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:text="@string/btnRate" />&ndash;&gt;-->
+            <!--</TableRow>-->
+            <!--<TableRow>-->
+                <!--&lt;!&ndash;<Button android:id="@+id/fatness_button"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginLeft="5px" android:layout_marginRight="5px"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginTop="5px" android:layout_marginBottom="5px"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="match_parent" android:layout_height="wrap_content"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:text="@string/btnFatness" />&ndash;&gt;-->
+                <!--&lt;!&ndash;<Button android:id="@+id/vol_button"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginLeft="5px" android:layout_marginRight="5px"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginTop="5px" android:layout_marginBottom="5px"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="match_parent" android:layout_height="wrap_content"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:text="@string/btnVol" />&ndash;&gt;-->
+            <!--</TableRow>-->
+            <!--<TableRow>-->
+                <!--&lt;!&ndash;<Button android:id="@+id/name_button"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginLeft="5px" android:layout_marginRight="5px"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginTop="5px" android:layout_marginBottom="5px"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="match_parent" android:layout_height="wrap_content"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:text="@string/btnName" />&ndash;&gt;-->
+                <!--&lt;!&ndash;<Button android:id="@+id/kind_button"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginLeft="5px" android:layout_marginRight="5px"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginTop="5px" android:layout_marginBottom="5px"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="match_parent" android:layout_height="wrap_content"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:text="@string/btnKind" />&ndash;&gt;-->
+            <!--</TableRow>-->
+            <!--<TableRow>-->
+                <!--&lt;!&ndash;<Button android:id="@+id/note_button"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginLeft="5px" android:layout_marginRight="5px"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_marginTop="5px" android:layout_marginBottom="5px"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="match_parent" android:layout_height="wrap_content"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:text="@string/btnNote" />&ndash;&gt;-->
+            <!--</TableRow>-->
+        <!--</TableLayout>-->
+        <!--&ndash;&gt;-->
+<!--&ndash;&gt;-->
+
+</ScrollView>
+

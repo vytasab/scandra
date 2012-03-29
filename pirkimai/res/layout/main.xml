@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView android:id="@+id/main_label"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:layout_margin="10px"
+        android:text="@string/what2do"/>
+
+    <Button android:id="@+id/main_order_button"
+        android:layout_marginLeft="20px" android:layout_marginRight="20px"
+        android:layout_marginTop="20px" android:layout_marginBottom="5px"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/order"/>
+
+    <Button android:id="@+id/main_purchase_button"
+        android:layout_marginLeft="20px" android:layout_marginRight="20px"
+        android:layout_marginTop="5px" android:layout_marginBottom="5px"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/purchase"/>
+
+    <Button android:id="@+id/main_templates_button"
+        android:layout_marginLeft="20px" android:layout_marginRight="20px"
+        android:layout_marginTop="5px" android:layout_marginBottom="5px"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/new_goods_type"/>
+
+    <!--<Button android:id="@+id/main_purchaseLI_button"
+         android:layout_width="wrap_content" android:layout_height="wrap_content"
+         android:text="@string/purchaseLI" />-->
+
+</LinearLayout>
+
+

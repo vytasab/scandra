@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<!--<TextView android:id="@+id/order_activity_label"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_marginBottom="10px"
+		android:text="@string/order_activity" />-->
+    <ListView
+            android:id="@+id/thing_list"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"/>
+
+	<!--<EditText android:id="@+id/external_storage_input"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_marginBottom="10px" />-->
+
+	<!--<Button android:id="@+id/external_storage_write_button"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="Write" />-->
+
+	<!--<Button android:id="@+id/external_storage_read_button"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="Read" />-->
+
+	<!--<TextView android:id="@+id/external_storage_output"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_marginBottom="10px" />-->
+
+
+</LinearLayout>

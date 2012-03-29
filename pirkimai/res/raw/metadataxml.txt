@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<meta>
+    <!--<p n="group">-->
+    <groups>
+    <v k="1">duona</v>
+    <v k="2">pieno-produktai</v>
+    <v k="3">birūs-produktai</v>
+    <v k="4">mėsa-produktai</v>
+    <v k="5">žuvies-produktai</v>
+    <v k="6">kepiniai</v>
+    <v k="7">daržovės</v>
+    <v k="8">vaisiai</v>
+    <v k="9">gėrimai</v>
+    <v k="20">buitis</v>
+    <v k="21">higiena</v>
+    <v k="99">visa-kita</v>
+    <!-- <v k=""></v> -->
+    </groups>
+  <mandatProps>
+    <p n="measure" values="kg|g|l|vnt|pak|m|m2"/>
+    <p n="qty" values="0.10|0.33|0.5|1|1.5|2|3|5|10|20|100|200|400|800"/>
+  </mandatProps>
+  <optionProps>
+    <p n="name" values="" />
+    <p n="rate" values="aukšč.r|1r|2r|3r" />
+    <p n="fatness" values="2.5%|3.5%" />
+    <p n="vol" values="4.8%|5.2%|11%|38%" />
+  </optionProps>
+  <optionMultiProps>
+    <p n="kind" values="" />
+  </optionMultiProps>
+  <textProps>
+    <p>note</p>
+  </textProps>
+</meta>
+
+<!--
+  val reasures: Array[String] = Array("kg","g","l","vnt","pak","m","m2")
+  <thingAttribsFixed seq="matter,measure" />
+  <thingAttribsSelectOne seq="qty rate fatness vol name" />
+  <thingAttribsTextOnly seq="note" />
+  <orderAttribs seq="matter,amount,rate,fatness,vol,kind,note" />
+  <thingAttribsSelectMany seq="kind" />
+-->
+

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent" android:layout_height="fill_parent"
+                    android:gravity="center_horizontal" android:padding="10px">
+
+        <!--<TextView android:id="@+id/lbl_matter"
+         android:layout_width="wrap_content" android:layout_height="wrap_content"
+         android:text="@string/lbl_matter"/>
+<EditText android:id="@+id/matter"
+         android:layout_width="fill_parent" android:layout_height="wrap_content"
+         android:layout_below="@id/lbl_matter"/>
+
+<TextView android:id="@+id/lbl_measure"
+         android:layout_width="wrap_content" android:layout_height="wrap_content"
+         android:text="@string/lbl_measure"
+         android:layout_below="@id/matter"/>
+<Spinner android:id="@+id/measure"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_below="@id/lbl_measure"/>-->
+        <!--<string name="btnFatness">Riebumas</string>
+           <string name="btnVol">Alkoliumas</string>
+           <string name="btnName">Pavadinimas</string>
+           <string name="btnKind">Kitos savybės</string>
+           <string name="btnNote">Pastaba</string>
+        -->
+
+        <Button android:id="@+id/btnQty" android:text="@string/btnQty" style="@style/button_text"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/btnName" android:text="@string/btnName" style="@style/button_text"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_below="@id/btnQty"/>
+        <Button android:id="@+id/btnRate" android:text="@string/btnRate" style="@style/button_text"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_below="@id/btnName"/>
+        <Button android:id="@+id/btnFatness" android:text="@string/btnFatness" style="@style/button_text"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_below="@id/btnRate"/>
+        <Button android:id="@+id/btnVol" android:text="@string/btnVol" style="@style/button_text"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_below="@id/btnFatness"/>
+        <Button android:id="@+id/btnKind" android:text="@string/btnKind" style="@style/button_text"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_below="@id/btnVol"/>
+
+        <Button android:id="@+id/btnCREATE" android:text="@string/btnCREATE" style="@style/button_text"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_below="@id/btnKind"/>
+
+        <!--<Button android:id="@+id/btnCONTINUE" android:text="@string/btnCONTINUE" style="@style/button_text"
+       android:layout_width="wrap_content" android:layout_height="wrap_content"
+       android:layout_below="@id/btnKind" android:layout_toRightOf="@id/btnCREATE"/>-->
+        <!--<?xml version="1.0" encoding="utf-8"?>
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent" android:layout_height="fill_parent"
+            android:gravity="center_horizontal" android:padding="10px">
+            <TextView android:id="@+id/prompt_label"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/prompt_metric"/>
+            <EditText android:id="@+id/amount" android:layout_below="@id/prompt_label"
+                android:layout_width="fill_parent" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/uom_label"
+                android:layout_below="@id/amount"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/uom"/>
+            <Spinner android:id="@+id/uom_value"
+                android:layout_below="@id/uom_label"
+                android:layout_width="wrap_content"	android:layout_height="wrap_content"/>
+            <Button android:id="@+id/convert_button"
+                android:layout_below="@id/uom_value"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/convert_button_label"/>
+            <TextView android:id="@+id/result_value"
+                android:layout_below="@id/convert_button"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
+        </RelativeLayout>-->
+
+        <!-- layout/spinner_view.xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/spinner_item" android:layout_width="fill_parent"
+            android:layout_height="fill_parent" style="@style/spinner_item"/>
+        -->
+
+        <!-- vales/styles.xml
+        <?xml version="1.0" encoding="utf-8"?>
+        <resources>
+            <style name="spinner_item">
+                <item name="android:textSize">16sp</item>
+                <item name="android:textColor">#000000</item>
+            </style>
+            <style name="spinner_item_dropdown">
+                <item name="android:textSize">16sp</item>
+                <item name="android:textColor">#000000</item>
+            </style>
+        </resources>
+        -->
+
+    </RelativeLayout>
+
+</ScrollView>

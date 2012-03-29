@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<things updated="2012-02-15 19:10">
+    <t matter="pienas" g="2" measure="l" qty="0.5|1|1.5|2|3|4" fatness="2.5%|3.5%">
+        <stat lastuse="2012-02-15 19:10" updated="2012-02-15 19:10" created="2012-02-15 19:10" usecases="0" />
+    </t>
+    <t matter="kefyras" g="2" measure="l" qty="0.5|1|1.5|2|3|4" fatness="2.5%|3.5%" >
+        <stat lastuse="2012-02-15 19:10" updated="2012-02-15 19:10" created="2012-02-15 19:10" usecases="0" />
+    </t>
+    <t matter="jogurtas" g="2" measure="l" name="Vaisinis|Šokoladinis"  qty="0.5|1|1.5|2|3|4" fatness="2.5%|3.5%">
+        <stat lastuse="2012-02-15 19:10" updated="2012-02-15 19:10" created="2012-02-15 19:10" usecases="0" />
+    </t>
+    <t matter="bulvės" g="7" measure="kg" qty="0.5|1|1.5|2|3|4" name="Baltos|Prūsinės">
+        <stat lastuse="2012-02-15 19:10" updated="2012-02-15 19:10" created="2012-02-15 19:10" usecases="0" />
+    </t>
+    <t matter="žirniai" g="3" measure="g" qty="200|400|800" name="Galinta" kind="šlifuoti|skaldyti">
+        <stat lastuse="2012-02-15 19:10" updated="2012-02-15 19:10" created="2012-02-15 19:10" usecases="0" />
+    </t>
+    <t matter="alus" g="9" measure="l" qty=".33|.5|1.0|1.5" name="Šaltukas|Extra|7.30|Tauras|Utenos|Kauno|Biržų|Gubernijos|Velkopopovicky Kozel|Germania" kind="stikl.but.|skardinės|bambaliai">
+        <stat lastuse="YYYY-MM-DD HH:mm" updated="YYYY-MM-DD HH:mm" created="YYYY-MM-DD HH:mm" usecases="0" />
+    </t>
+    <t matter="[.?.]" g="99" measure="..." qty="..." >
+        <stat lastuse="YYYY-MM-DD HH:mm" updated="YYYY-MM-DD HH:mm" created="YYYY-MM-DD HH:mm" usecases="0" />
+    </t>
+</things>
+

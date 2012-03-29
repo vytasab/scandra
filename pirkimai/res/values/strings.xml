@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bendri pirkimai</string>
+    <!--<string name="label_order">Pirkinių formavimas (naudokite Meniu)</string>-->
+    <string name="label_select">Pasirinkite:</string>
+    <string name="label_order_making">Pirkimo planavimas</string>
+    <string name="label_order_attrib_setting">Pirkimo detalus planavimas</string>
+    <string name="label_purchase">Pirkinių sąrašas</string>
+    <string name="label_templates">Ruošinių grupė</string>
+    <string name="label_templates_making">Ruošinio darymas</string>
+    <string name="label_template_attrib">Ruošinio atributo darymas</string>
+    <string name="label_groups">Ruošinių grupės</string>
+    <string name="label_new_template">Kuriamas ruošinys</string>
+    <string name="label_new_template_cont">Tęsiamas ruošinio kūrimas</string>
+    <!--<string name="label_"></string>-->
+
+    <string name="lbl_matter">Prekė</string>
+    <string name="lbl_measure">Matavimo vienetai</string>
+
+    <string name="about">Apie programėlę</string>
+    <string name="no_items">Tuščias sąrašas</string>
+    <string name="home">Į pradžią</string>
+
+    <string name="NEW">NAUJAS</string>
+    <string name="NEW_template_group">NAUJA ruošinių grupė</string>
+    <string name="NEW_template">NAUJAS ruošinys</string>
+    <string name="NEW_template_attrib_value">NAUJA atributo reikšmė</string>
+    <string name="CREATE_template_attrib">SUKURTI atributą</string>
+    <string name="DELETE_template_attrib">IŠTRINTI atributą</string>
+
+    <string name="what2do">Pasirinkite ką ruošiatės veikti:</string>
+    <string name="order">Reikia nupirkti</string>
+    <string name="orderTitle">Pirkinių formavimas (naudokite Meniu)</string>
+    <string name="purchase">Jau perku</string>
+    <string name="new_goods_type">Ruošiniai</string>
+    <string name="order_activity">Čia bus formuojami pirkimai:</string>
+    <string name="purchase_activity">Čia bus vykdomas pirkimas:</string>
+    <string name="purchase_ready">Pirkinių sąrašas jau suformuotas</string>
+    <string name="purchase_empty">Pirkinių sąrašas yra tuščias !!!</string>
+    <string name="purchase_decision_item">...</string>
+    <string name="purchase_decision_done">Perku</string>
+    <string name="purchase_decision_partially_done">Dalinai perku</string>
+    <string name="purchase_decision_revert">Nebeperku</string>
+    <string name="purchase_decision_cancel">Atgal</string>
+    <string name="results">Sąrašas</string>
+    <string name="results_done">Nupirkau</string>
+    <string name="results_partially_done">Dalinai nupirkau</string>
+    <string name="results_notyet">Liko nupirkti</string>
+
+    <string name="btnQty">Kiekis</string>
+    <string name="btnName">Pavadinimas</string>
+    <string name="btnRate">Rūšis</string>
+    <string name="btnFatness">Riebumas</string>
+    <string name="btnVol">Alkoholiumas</string>
+    <string name="btnKind">Kitos savybės</string>
+    <string name="btnNote">Pastaba</string>
+
+    <string name="btnOK">BAIGTI</string>
+    <string name="btnCANCEL">NUTRAUKTI</string>
+    <string name="btnCREATE">SUKURTI</string>
+    <string name="btnCONTINUE">TĘSTI</string>
+
+    <string name="btnOrderNew">Pradėti naują pirkinių sąrašą</string>
+    <string name="btnOrderResume">Tęsti pradėtą pirkinių sąrašą</string>
+
+    <string name="menuOrderCreationFinish">Baigti pirkinių planavimą</string>
+    <string name="menuOrderDisplay">Rodyti suplanuotus pirkinius</string>
+
+    <string name="errGetOrderItemByItemStringReturnsNone">getOrderItemByItemString neranda pirkio</string>
+    <string name="errZeroLengthString">Tuščia eilutė negalima</string>
+    <string name="infoRejectTheAction">Jūs atsisakėte šio veiksmo</string>
+    <string name="infoTemplateIsCreated">Ruošinys sėkmingai sukurtas</string>
+    <string name="infoTemplateIsChanged">Ruošinys sėkmingai pakeistas</string>
+    <string name="infoTemplateIsDeleted">Ruošinys sėkmingai ištrintas</string>
+    <string name="errTemplateCreationFailed">KLAIDA: Nepavyko sukurti ruošinio dėl nežinomų priežasčių</string>
+    <string name="errTemplateDeletionFailed">KLAIDA: Nepavyko ištrinti ruošinio dėl nežinomų priežasčių</string>
+    <string name="errTemplateUpdateFailed">KLAIDA: Nepavyko pakeisti ruošinio dėl nežinomų priežasčių</string>
+    <string name="errTemplateIsntUnique">KLAIDA: Ruošinys tokiu vardu jau yra !</string>
+
+    <!--<string name="matter">Prekė</string>-->
+    <!--<string name="measure">Matavimo vienetas</string>-->
+    <string name="name">brand</string>
+    <string name="rate">rūšis</string>
+    <string name="fatness">riebumas</string>
+    <string name="val">stiprumas (alk)</string>
+    <string name="kind">kitos sąvybės</string>
+
+    <!--<p n="measure" values="kg|g|l|vnt|pak|m|m2"/>-->
+    <string name="kg">kilogramai</string>
+    <string name="g">gramai</string>
+    <string name="l">litrai</string>
+    <string name="vnt">vienetai</string>
+    <string name="pak">pakeliai</string>
+    <string name="m">metrai</string>
+    <string name="m2">kv.metrai</string>
+
+
+
+    <!--
+      private[this] var btnQty: Button = _
+  private[this] var btnRate: Button = _
+  private[this] var btnFatness: Button = _
+  private[this] var btnVol: Button = _
+  private[this] var btnName: Button = _
+  private[this] var btnKind_: Button = _
+  private[this] var btnNote: Button = _
+-->
+
+    <!--<string-array name="countries_array">
+        <item>Iceland</item>
+        <item>India</item>
+        <item>Indonesia</item>
+        <item>Iran</item>
+        <item>Iraq</item>
+        <item>Ireland</item>
+        <item>Israel</item>
+        <item>Italy</item>
+        <item>Jamaica</item>
+        <item>Japan</item>
+        <item>Jordan</item>
+        <item>Kazakhstan</item>
+        <item>Kenya</item>
+        <item>Kiribati</item>
+        <item>Kuwait</item>
+        <item>Kyrgyzstan</item>
+        <item>Laos</item>
+        <item>Latvia</item>
+        <item>Lebanon</item>
+        <item>Lesotho</item>
+        <item>Liberia</item>
+        <item>Libya</item>
+        <item>Liechtenstein</item>
+        <item>Lithuania</item>
+        <item>Luxembourg</item>
+        <item>Uganda</item>
+        <item>Ukraine</item>
+        <item>United Arab Emirates</item>
+        <item>United Kingdom</item>
+        <item>United States</item>
+        <item>United States Minor Outlying Islands</item>
+        <item>Uruguay</item>
+        <item>Uzbekistan</item>
+        <item>Vanuatu</item>
+        <item>Vatican City</item>
+        <item>Venezuela</item>
+        <item>Vietnam</item>
+        <item>Wallis and Futuna</item>
+        <item>Western Sahara</item>
+        <item>Yemen</item>
+        <item>Yugoslavia</item>
+        <item>Zambia</item>
+        <item>Zimbabwe</item>
+    </string-array>-->
+</resources>
+
+
+<!--<TextView android:id="@+id/order_activity_label"
+          android:layout_width="fill_parent" android:layout_height="wrap_content"
+          android:layout_marginBottom="10px"
+          android:text="Enter some text to write on the external storage, then read back:" />-->
+

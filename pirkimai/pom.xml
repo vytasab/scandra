@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>ScandraNodeLt</artifactId>
+        <groupId>lt.node.scandra</groupId>
+        <version>1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>Pirkimai</artifactId>
+    <description>Bendri pirkimai</description>
+    <packaging>apk</packaging>
+    <name>${project.artifactId}</name>
+    <inceptionYear>2012</inceptionYear>
+
+    <!--
+    mvn clean install android:redeploy -Dmaven.test.skip=true
+     -->
+    <!--
+    mvn install android:redeploy -Dmaven.test.skip=true
+     -->
+
+    <properties/>
+    <!--<properties>
+        <proguard.obfuscate>false</proguard.obfuscate>
+        <proguard.skip>false</proguard.skip>
+    </properties>-->
+    <pluginRepositories/>
+    <dependencies/>
+    <build/>
+
+</project>

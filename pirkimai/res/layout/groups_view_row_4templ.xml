@@ -1,0 +1,29 @@
+<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:layout_width="fill_parent"-->
+<!--android:layout_height="wrap_content">-->
+<!--<LinearLayout android:id="@+id/LinearLayout01"-->
+<LinearLayout android:id="@+id/LinearLayoutGroups"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<ImageButton
+            android:id="@+id/btnToClick" android:onClick="editClickHandler"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp" android:layout_marginRight="0dp"
+            android:src="@drawable/page_edit" android:visibility="visible"
+            android:layout_weight="1"/>-->
+    <TextView android:id="@+id/tvGroupViewRow" android:onClick="clickTextViewHandler4Order"
+              android:text="-----" android:clickable="true"
+              android:layout_width="180px" android:layout_height="fill_parent"
+              android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
+              android:textSize="13px" android:textStyle="bold"
+              android:layout_weight="1"/>
+    <!--<ImageButton
+            android:id="@+id/btnToClick" android:onClick="deleteClickHandler"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp" android:layout_marginRight="0dp"
+            android:src="@drawable/page_delete" android:visibility="visible"
+            android:layout_weight="1"/>-->
+</LinearLayout>
+<!--</ScrollView>-->
