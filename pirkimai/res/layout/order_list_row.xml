@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+          android:layout_width="fill_parent" android:layout_height="fill_parent"
+          android:text="--ABCDEFabcdefŠšĄą--"
+          style="@style/thing_text">
+</TextView>
+
+<!--
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+          android:layout_width="fill_parent" android:layout_height="fill_parent"
+          android:text="-ABCDEFabcdefŠšĄą-"
+          android:textSize="13px" android:textStyle="bold"
+          android:textColor="#FFF"
+          android:padding="10dip">
+</TextView>-->
