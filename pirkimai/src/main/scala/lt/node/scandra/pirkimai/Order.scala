@@ -202,7 +202,7 @@ class Order extends ListActivity with OrderPurchase /*with OnClickListener*/ {
         startActivity(newActivity)
       case ti =>
         //setListAdapter(new ArrayAdapter[String](this, R.layout.purchase_list_item, orderItemsAll(orderString).toArray))
-        setListAdapter(new MyArrayAdapter[String](this, R.layout.thing_list_item, ti.toArray))
+        setListAdapter(new MyArrayAdapter[String](this, R.layout.order_list_row, ti.toArray))
 
         //lv.setBackgroundResource(R.drawable.red)
         lv.setBackgroundColor(Color.BLACK)

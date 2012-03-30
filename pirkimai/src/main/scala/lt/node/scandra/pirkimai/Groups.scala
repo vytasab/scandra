@@ -52,11 +52,11 @@ class Groups extends ListActivity with OnClickListener with OrderPurchase with S
 
     getIntent match {
       case intent if intent.hasExtra("new") => {
-        Log.v(TAG + " Groups", " case hasExtra(\"new\") ...")
+        Log.v(tagclass + "case hasExtra(\"new\") ...", "")
         inputString(/*"Pavadinimas"*/ null, /*"Pranešimas"*/ null, okAction4New, cancelAction4New)
 
         def okAction4New(text: String) {
-          Log.v(TAG + " Groups okAction", text)
+          Log.v(tagclass + "okAction", text)
           val meta: Node =
             XML.loadString(getXmlAsStr(R.raw.metadataxml, "metadataxml.txt", "no_extra", this.asInstanceOf[Groups]))
           val groups: scala.collection.immutable.List[String] =
@@ -65,7 +65,7 @@ class Groups extends ListActivity with OnClickListener with OrderPurchase with S
             case true =>
               val maxId: Int = groups.map(s => getTemplateGroupIdByName(R.raw.metadataxml, "metadataxml.txt", "no_extra",
                 this.asInstanceOf[Groups], s).toInt).max
-              Log.v(TAG + " Groups okAction maxId", maxId.toString)
+              Log.v(tagclass + "okAction maxId", maxId.toString)
               val groupsNode: Node = ((meta \ "groups")(0))
               addChild(groupsNode, <v k={(maxId + 1).toString}>
                 {text}
@@ -74,7 +74,7 @@ class Groups extends ListActivity with OnClickListener with OrderPurchase with S
                   val metaUpdated: Node = <meta>
                     {groupsNodeUpdated}{(meta \ "mandatProps")(0)}{(meta \ "optionProps")(0)}{(meta \ "optionMultiProps")(0)}{(meta \ "textProps")(0)}
                   </meta>
-                  Log.v(TAG + " Groups okAction metaUpdated", metaUpdated.toString)
+                  Log.v(tagclass + "okAction metaUpdated", metaUpdated.toString)
                   val dir = FileUtil.getExternalFilesDirAllApiLevels(this.getPackageName);
                   XML.save(dir + "/metadataxml.txt", metaUpdated, "UTF-8", true, null)
                 case None =>
@@ -87,7 +87,7 @@ class Groups extends ListActivity with OnClickListener with OrderPurchase with S
         }
 
         def cancelAction4New() {
-          Log.v(TAG + " Groups cancelAction", "")
+          Log.v(tagclass + " Groups cancelAction", "")
           Toast.makeText(this, "Jūs atsisakėte naujos ruošinių grupės kūrimo", Toast.LENGTH_LONG).show()
           startActivity(new Intent(this, classOf[Groups]).putExtra("case", "CrEdDe"))
         }
@@ -95,13 +95,13 @@ class Groups extends ListActivity with OnClickListener with OrderPurchase with S
 
       case intent if intent.hasExtra("edit") => {
         val currentName: String = intent.getStringExtra("edit")
-        Log.v(TAG + " Groups case hasExtra(\"edit\") currentName", currentName)
+        Log.v(tagclass + "case hasExtra(\"edit\") currentName", currentName)
         val id: String = getTemplateGroupIdByName(R.raw.metadataxml, "metadataxml.txt", "no_extra", this.asInstanceOf[Groups], currentName)
-        Log.v(TAG + " Groups case hasExtra(\"edit\") id", id)
+        Log.v(tagclass + "case hasExtra(\"edit\") id", id)
         inputString(/*"Pavadinimas"*/ null, currentName, okAction4Edit, cancelAction4Edit)
 
         def okAction4Edit(text: String) {
-          Log.v(TAG + " Groups okAction4Edit", text)
+          Log.v(tagclass + "okAction4Edit", text)
           val meta: Node = XML.loadString(getXmlAsStr(R.raw.metadataxml, "metadataxml.txt", "no_extra", this.asInstanceOf[Groups]))
           val groups: scala.collection.immutable.List[String] =
             getTemplateGroups(R.raw.metadataxml, "metadataxml.txt", "no_extra", this.asInstanceOf[Groups]).toList
@@ -121,7 +121,7 @@ class Groups extends ListActivity with OnClickListener with OrderPurchase with S
                 }
               }
               val groupsCut = (new RuleTransformer(removeIt).transform(groupsNode))(0)
-              Log.v(TAG + " Groups okAction4Edit groupsCut", groupsCut.toString)
+              Log.v(tagclass + "okAction4Edit groupsCut", groupsCut.toString)
               addChild(groupsCut, <v k={id}>
                 {newText}
               </v>) match {
@@ -129,7 +129,7 @@ class Groups extends ListActivity with OnClickListener with OrderPurchase with S
                   val metaUpdated: Node = <meta>
                     {groupsUpdated}{(meta \ "mandatProps")(0)}{(meta \ "optionProps")(0)}{(meta \ "optionMultiProps")(0)}{(meta \ "textProps")(0)}
                   </meta>
-                  Log.v(TAG + " Groups okAction4Edit metaUpdated", metaUpdated.toString)
+                  Log.v(tagclass + "okAction4Edit metaUpdated", metaUpdated.toString)
                   val dir = FileUtil.getExternalFilesDirAllApiLevels(this.getPackageName);
                   XML.save(dir + "/metadataxml.txt", metaUpdated, "UTF-8", true, null)
                   Toast.makeText(this, "Ruošinių grupės vardas pakeistas", Toast.LENGTH_LONG).show()
@@ -141,7 +141,7 @@ class Groups extends ListActivity with OnClickListener with OrderPurchase with S
         }
 
         def cancelAction4Edit() {
-          Log.v(TAG + " Groups cancelAction", "")
+          Log.v(tagclass + "cancelAction", "")
           Toast.makeText(this, "Jūs atsisakėte ruošinių grupės vardo keitimo", Toast.LENGTH_LONG).show()
           startActivity(new Intent(this, classOf[Groups]).putExtra("case", "CrEdDe"))
         }
@@ -149,9 +149,9 @@ class Groups extends ListActivity with OnClickListener with OrderPurchase with S
 
       case intent if intent.hasExtra("delete") => {
         val currentName: String = intent.getStringExtra("delete")
-        Log.v(TAG + " Groups case hasExtra(\"delete\") currentName", currentName)
+        Log.v(tagclass + "case hasExtra(\"delete\") currentName", currentName)
         val id: String = getTemplateGroupIdByName(R.raw.metadataxml, "metadataxml.txt", "no_extra", this.asInstanceOf[Groups], currentName)
-        Log.v(TAG + " Groups case hasExtra(\"edit\") id", id)
+        Log.v(tagclass + "case hasExtra(\"edit\") id", id)
         val meta: Node = XML.loadString(getXmlAsStr(R.raw.metadataxml, "metadataxml.txt", "no_extra", this.asInstanceOf[Groups]))
         val xmlStr: String =
           getXmlAsStr(R.raw.thingsxml, "thingsxml.txt", /* "orderString"*/ "no-extra", this.asInstanceOf[Groups])
@@ -165,11 +165,11 @@ class Groups extends ListActivity with OnClickListener with OrderPurchase with S
               }
             }
             val groupsCut = (new RuleTransformer(removeIt).transform(groupsNode))(0)
-            Log.v(TAG + " Groups okAction4Delete groupsCut", groupsCut.toString)
+            Log.v(tagclass + "okAction4Delete groupsCut", groupsCut.toString)
             val metaUpdated: Node = <meta>
               {groupsCut}{(meta \ "mandatProps")(0)}{(meta \ "optionProps")(0)}{(meta \ "optionMultiProps")(0)}{(meta \ "textProps")(0)}
             </meta>
-            Log.v(TAG + " Groups okAction4Delete metaUpdated", metaUpdated.toString)
+            Log.v(tagclass + "okAction4Delete metaUpdated", metaUpdated.toString)
             val dir = FileUtil.getExternalFilesDirAllApiLevels(this.getPackageName);
             XML.save(dir + "/metadataxml.txt", metaUpdated, "UTF-8", true, null)
             Toast.makeText(this, "Ruošinių grupė ištrinta !", Toast.LENGTH_LONG).show()
@@ -245,7 +245,7 @@ class Groups extends ListActivity with OnClickListener with OrderPurchase with S
     txtChild.setTextColor(Color.BLUE)
 
     val groupName: String = txtChild.asInstanceOf[TextView].getText.toString
-    Log.v(this.TAG + " Groups clickTextViewHandler  groupName ...", groupName)
+    Log.v(tagclass + "clickTextViewHandler  groupName ...", groupName)
     val groupId: String = getTemplateGroupIdByName(R.raw.metadataxml, "metadataxml.txt", "no_extra",
       this.asInstanceOf[Groups], groupName)
     startActivity(new Intent(this, classOf[Templates]).putExtra("groupId", groupId))
@@ -258,7 +258,7 @@ class Groups extends ListActivity with OnClickListener with OrderPurchase with S
     txtChild.setTextColor(Color.BLUE)
 
     val groupName: String = txtChild/*.asInstanceOf[TextView]*/.getText.toString
-    Log.v(this.TAG + " Groups clickTextViewHandler  groupName ...", groupName)
+    Log.v(tagclass + " clickTextViewHandler  groupName ...", groupName)
     val groupId: String = getTemplateGroupIdByName(R.raw.metadataxml, "metadataxml.txt", "no_extra",
       this.asInstanceOf[Groups], groupName)
     startActivity(new Intent(this, classOf[/*Templates*/Order]).
@@ -273,10 +273,10 @@ class Groups extends ListActivity with OnClickListener with OrderPurchase with S
     //-> http://eureka.ykyuen.info/2010/01/03/android-simple-listview-using-simpleadapter/
     //-> http://commonsware.com/Android/excerpt.pdf ?
 
-    //    Log.v(this.TAG + " Groups fillData fillMaps getChildCount", this.getListView.getChildCount.toString)
-    //    Log.v(this.TAG + " Groups fillData fillMaps getChildAt(0)", this.getListView.getChildAt(0).toString)
-    //    Log.v(this.TAG + " Groups fillData fillMaps getChildAt(1)", this.getListView.getChildAt(1).toString)
-    //    Log.v(this.TAG + " Groups fillData fillMaps getChildAt(2)", this.getListView.getChildAt(2).toString)
+    //    Log.v(tagclass + "fillData fillMaps getChildCount", this.getListView.getChildCount.toString)
+    //    Log.v(tagclass + "fillData fillMaps getChildAt(0)", this.getListView.getChildAt(0).toString)
+    //    Log.v(tagclass + "fillData fillMaps getChildAt(1)", this.getListView.getChildAt(1).toString)
+    //    Log.v(tagclass + "fillData fillMaps getChildAt(2)", this.getListView.getChildAt(2).toString)
     //    getIntent.hasExtra("case") match {
     //      case true if getIntent.getStringExtra("case") == "CrEdDe" =>
     //        this.getListView.getChildAt(0).asInstanceOf[ImageButton].setVisibility(View.VISIBLE)
@@ -292,16 +292,16 @@ class Groups extends ListActivity with OnClickListener with OrderPurchase with S
 
     val groups: Array[String] =
       getTemplateGroups(R.raw.metadataxml, "metadataxml.txt", "no_extra", this.asInstanceOf[Groups])
-    Log.v(TAG + " Groups fillData groups", groups.toString)
+    Log.v(tagclass + "fillData groups", groups.toString)
     groups.foreach(arg => {
-      Log.v(this.TAG + " Groups fillData arg", arg)
+      Log.v(tagclass + "fillData arg", arg)
       val map: HashMap[String, String] = new HashMap[String, String]
       map.put("rowid", arg)
       fillMaps.add(map)
     })
-    Log.v(this.TAG + " Groups fillData fillMaps size", fillMaps.size.toString)
-    Log.v(this.TAG + " Groups fillData fillMaps", fillMaps.toString)
-    Log.v(this.TAG + " Groups fillData groups_view_row", R.layout.groups_view_row.toString)
+    Log.v(tagclass + "fillData fillMaps size", fillMaps.size.toString)
+    Log.v(tagclass + "fillData fillMaps", fillMaps.toString)
+    Log.v(tagclass + "fillData groups_view_row", R.layout.groups_view_row.toString)
 
     getIntent.hasExtra("case") match {
       //case true if getIntent.getStringExtra("case") == "CrEdDe" =>

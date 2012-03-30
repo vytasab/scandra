@@ -35,14 +35,14 @@ class OrderAttribSetting extends ListActivity with OrderPurchase {
 //    val thingsxmlFile = new File(dir, "thingsxml.txt")
 //    val thingsString: String = thingsxmlFile.exists() match {
 //      case false => // development time case
-//        Log.v(TAG + " Order", "thingsxmlFile.exists()  case false ...")
+//        Log.v(tagclass, "thingsxmlFile.exists()  case false ...")
 //        val resources: Resources = this.getResources
 //        val srcStream: InputStream = resources openRawResource R.raw.thingsxml
 //        val srcString = scala.io.Source.fromInputStream(srcStream).getLines().mkString("\n")
 //        FileUtil.writeStringAsFile(srcString, thingsxmlFile) /*: Boolean*/
 //        FileUtil.readFileAsString(thingsxmlFile)
 //      case _ =>  //
-//        Log.v(TAG + " Order", "thingsxmlFile.exists()  case true ...")
+//        Log.v(tagclass, "thingsxmlFile.exists()  case true ...")
 //        """<goto_things updated="2012-02-15 19:10">
 //            <t matter="pienas" measure="l" qty="0.5|1|1.5|2|3|4" fatness="2.5%|3.5%">
 //                <stat lastuse="2012-02-15 19:10" updated="2012-02-15 19:10" created="2012-02-15 19:10" usecases="0" />
@@ -68,7 +68,7 @@ class OrderAttribSetting extends ListActivity with OrderPurchase {
 //        </goto_things>
 //        """
 //    }
-//    Log.v(TAG + " Order ... case ANY = ", thingsString.toString)
+//    Log.v(tagclass + "... case ANY = ", thingsString.toString)
 //    showThingItems(thingsString)
 
     thingNodeXmlString = getIntent.getStringExtra("thingNodeXmlString")
@@ -81,13 +81,13 @@ class OrderAttribSetting extends ListActivity with OrderPurchase {
     attribValuesStr = if (attribValuesStr.endsWith("...")) attribValuesStr else  attribValuesStr + "|..."
     val attribValues: Array[String] = attribValuesStr.split("\\|")
 
-    Log.v(TAG + " OrderAttribSetting ... case ANY = ", <_>attrib={attribName} attribValues={attribValues.toList}</_>.text)
+    Log.v(tagclass + "... case ANY = ", <_>attrib={attribName} attribValues={attribValues.toList}</_>.text)
     showAttribValues(attribValues)
   }
 
 
   def showAttribValues(attribValues: Array[String]) {
-    Log.v(TAG + " OrderAttribSetting showAttribValues  ", " ... ... ...")
+    Log.v(tagclass + "showAttribValues  ", " ... ... ...")
     attribValues match {
       case av if av.length == 0 =>
         Toast.makeText(getApplicationContext,
@@ -96,16 +96,16 @@ class OrderAttribSetting extends ListActivity with OrderPurchase {
         startActivity(newActivity)
       case ti =>
         //setListAdapter(new ArrayAdapter[String](this, R.layout.purchase_list_item, orderItemsAll(orderString).toArray))
-        setListAdapter(new MyArrayAdapter[String](this, R.layout.thing_list_item, ti/*.toArray*/))
+        setListAdapter(new MyArrayAdapter[String](this, R.layout.order_list_row, ti.asInstanceOf[Array[String with Object]]))
 
         val lv: ListView = this.getListView
         //lv.setBackgroundResource(R.drawable.red)
         lv.setBackgroundColor(Color.BLACK)
-        //         Log.v(TAG + " Purchase showOrderItemsAll getCount  ", lv.getCount().toString)
+        //         Log.v(tagclass + "showOrderItemsAll getCount  ", lv.getCount().toString)
         //         for (i <- 0 to lv.getCount()) {
-        //           Log.v(TAG + " Purchase showOrderItemsAll  ", lv.getItemAtPosition(i).getClass.toString)
-        //           Log.v(TAG + " Purchase showOrderItemsAll  ", lv.getItemAtPosition(i).asInstanceOf[String])
-        //           //Log.v(TAG + " Purchase showOrderItemsAll  ", lv.getItemAtPosition(i)./.*asInstanceOf[View]*//*.getChildAt(i)*/toString)
+        //           Log.v(tagclass + "showOrderItemsAll  ", lv.getItemAtPosition(i).getClass.toString)
+        //           Log.v(tagclass + "showOrderItemsAll  ", lv.getItemAtPosition(i).asInstanceOf[String])
+        //           //Log.v(tagclass + "showOrderItemsAll  ", lv.getItemAtPosition(i)./.*asInstanceOf[View]*//*.getChildAt(i)*/toString)
         //           // //lv.getAdapter.getItemIdAtPosition(i)
         //           //lv.getTouchables.get(i).setBackgroundColor(Color.GREEN)
         //           //lv.getChildAt(i).setBackgroundColor(Color.GREEN)
@@ -115,7 +115,7 @@ class OrderAttribSetting extends ListActivity with OrderPurchase {
         lv.setOnItemClickListener(new OnItemClickListener() {
           override def onItemClick(parent: AdapterView[_], view: View, position: Int, id: Long) {
             //-> http://stackoverflow.com/questions/4852307/listview-onclick-goes-to-a-new-activity
-            Log.v(TAG + " OrderAttribSetting", "onItemClick ...")
+            Log.v(tagclass, "onItemClick ...")
             val omActivity: Intent = new Intent(OrderAttribSetting.this, classOf[OrderMaking]);
             omActivity.putExtra("thingNodeXmlString", thingNodeXmlString)
             omActivity.putExtra("orderNodeXmlString", orderNodeXmlString)
@@ -123,13 +123,13 @@ class OrderAttribSetting extends ListActivity with OrderPurchase {
             omActivity.putExtra("value", view.asInstanceOf[TextView].getText)
             getIntent.hasExtra("origOrderNodeXmlString") match {
               case true =>
-                Log.v(TAG + " OrderAttribSetting showAttribValues ", "onItemClick origOrderNodeXmlString ...")
+                Log.v(tagclass + "showAttribValues ", "onItemClick origOrderNodeXmlString ...")
                 omActivity.putExtra("origOrderNodeXmlString", getIntent.getStringExtra("origOrderNodeXmlString"))
               case _ =>
             }
             if (getIntent.hasExtra("back2PreOrder")) omActivity.putExtra("back2PreOrder", "yes")
             startActivity(omActivity)
-            Log.v(TAG + " OrderAttribSetting", "... onItemClick")
+            Log.v(tagclass, "... onItemClick")
             //-- Toast.makeText(getApplicationContext(), view.asInstanceOf[TextView].getText(), Toast.LENGTH_LONG).show()
           }
         })
