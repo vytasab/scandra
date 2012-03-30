@@ -10,6 +10,6 @@
           android:layout_width="fill_parent" android:layout_height="fill_parent"
           android:text="-ABCDEFabcdefŠšĄą-"
           android:textSize="13px" android:textStyle="bold"
-          android:textColor="#FFF"
+          android:textColor="#FFFFFF"
           android:padding="10dip">
 </TextView>-->
