@@ -190,4 +190,25 @@ println("z " + z)
 
 http://saigeethamn.blogspot.com/2010/12/creating-android-ui-programmatically.html
 
+----- C329-4/vsh ------------------------------------------------
+Išskaidžiau scalandoid-node-lt ->
+    scandra-node-lt - pirkimai
+    sata-node-lt - visa kita
+Pradėjau naudoti SCM Git'ą, naudodamasis C111-3 ..C118-3 patirtimi.
+Deja, dar visko iki galo nesutvarkiau
+
 ----- CmDD-d/vsh ------------------------------------------------
+lmgtfy.com [let me Google that for you]
+http://lmgtfy.com/?q=google+docs+api
+
+
+
+----- CmDD-d/vsh ------------------------------------------------
+
+
+
+=== Google search args ==========================================
+
+
+
+
