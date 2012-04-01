@@ -13,10 +13,10 @@ if you are adding a ListView into any other kind of Activity.
 You should extend ListActivity if you want the user to do more than view the list.
 For example, you can override ListActivity.onListItemClick to respond
 to clicks on an item in the list.  -->
-    <TextView android:id="@android:id/empty"
+    <!--<TextView android:id="@android:id/empty"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="@string/no_items"/>
+              android:text="@string/no_items"/>-->
 <!--Similarly, @id/android:empty (again, without the +), is a special case for ListActivity.
 This allows you to specify an alternative view that should be displayed when your list is empty.
 That View will not be displayed when the list is populated. -->
