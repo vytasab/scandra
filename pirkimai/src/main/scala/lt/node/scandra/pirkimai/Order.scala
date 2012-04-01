@@ -222,6 +222,7 @@ class Order extends ListActivity with OrderPurchase /*with OnClickListener*/ {
             val omActivity: Intent = new Intent(Order.this, classOf[OrderMaking]);
             omActivity.putExtra("thingNodeXmlString", thingNodeXmlString)
             omActivity.putExtra("orderNodeXmlString", orderNodeXmlString)
+            omActivity.putExtra("groupId", getIntent.getStringExtra("groupId"))
             if (getIntent.hasExtra("back2PreOrder")) omActivity.putExtra("back2PreOrder", "yes")
             startActivity(omActivity)
             Log.v(tagclass, "... onItemClick")
@@ -308,7 +309,7 @@ class Order extends ListActivity with OrderPurchase /*with OnClickListener*/ {
   }
   def logExtras(msg: String)  {
     val extras: scala.List[AnyRef] = getIntent.getExtras.keySet().toArray.toList
-    logExtras(extras/*.map(e => e.asInstanceOf[String])*/, msg)
+    logExtras(extras, msg)
   }
 
 

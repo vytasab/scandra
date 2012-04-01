@@ -129,7 +129,7 @@ class OrderMaking extends Activity with OrderPurchase with ScalaFunPro with Find
             removeOrderItemAttrib(orderNodeXmlString, attribName).toString
           case true if attribValue == "..." => // !!! !!! !!!
             // TO-done-DO kai attribValue == "..." padaryti teksto įvedimą
-            Log.v(TAG + " OrderMaking", "onClick btnXxxx ...")
+            Log.v(tagclass, "onClick btnXxxx ...")
             inputString(attribName /*null*/ , /*"Pranešimas"*/ null,
               (s: String) => {
                 attribValue = (if (s == "...") "._._." else s) // to escape endless recursion
@@ -268,35 +268,35 @@ class OrderMaking extends Activity with OrderPurchase with ScalaFunPro with Find
         val oasIntent = new Intent(this, classOf[OrderAttribSetting])
         v match {
           case vv if (vv == btnQty) =>
-            Log.v(TAG + " OrderMaking", "onClick btnQty ...")
+            Log.v(tagclass, "onClick btnQty ...")
             oasIntent.putExtra("attrib", "qty")
             oasIntent.putExtra("values", theNode.attributes.find(_.key == "qty").get.value.text)
           case vv if (vv == btnFatness) =>
-            Log.v(TAG + " OrderMaking", "onClick btnFatness ...")
+            Log.v(tagclass, "onClick btnFatness ...")
             oasIntent.putExtra("attrib", "fatness")
             oasIntent.putExtra("values", theNode.attributes.find(_.key == "fatness").get.value.text)
           case vv if (vv == btnRate) =>
-            Log.v(TAG + " OrderMaking", "onClick btnRate ...")
+            Log.v(tagclass, "onClick btnRate ...")
             oasIntent.putExtra("attrib", "rate")
             oasIntent.putExtra("values", theNode.attributes.find(_.key == "rate").get.value.text)
           case vv if (vv == btnVol) =>
-            Log.v(TAG + " OrderMaking", "onClick btnVol ...")
+            Log.v(tagclass, "onClick btnVol ...")
             oasIntent.putExtra("attrib", "vol")
             oasIntent.putExtra("values", theNode.attributes.find(_.key == "vol").get.value.text)
           case vv if (vv == btnName) =>
-            Log.v(TAG + " OrderMaking", "onClick btnName ...")
+            Log.v(tagclass, "onClick btnName ...")
             //oasIntent.putStringArrayListExtra()
             oasIntent.putExtra("attrib", "name")
             oasIntent.putExtra("values", theNode.attributes.find(_.key == "name").get.value.text)
           case vv if (vv == btnKind) =>
-            Log.v(TAG + " OrderMaking", "onClick btnKind ...")
+            Log.v(tagclass, "onClick btnKind ...")
             oasIntent.putExtra("attrib", "kind")
             oasIntent.putExtra("values", theNode.attributes.find(_.key == "kind").get.value.text)
           case _ =>
         }
         getIntent.hasExtra("origOrderNodeXmlString") match {
           case true =>
-            Log.v(TAG + " OrderMaking", "onClick btnXxx origOrderNodeXmlString ...")
+            Log.v(tagclass, "onClick btnXxx origOrderNodeXmlString ...")
             oasIntent.putExtra("origOrderNodeXmlString", getIntent.getStringExtra("origOrderNodeXmlString"))
           case _ =>
         }
@@ -306,7 +306,7 @@ class OrderMaking extends Activity with OrderPurchase with ScalaFunPro with Find
         startActivity(oasIntent)
 
       case v if (v == btnNote) =>
-        Log.v(TAG + " OrderMaking", "onClick btnNote ...")
+        Log.v(tagclass, "onClick btnNote ...")
         inputString("note" /*null*/ , /*"Pranešimas"*/ null,
           (s: String) => {
             attribName = "note"
@@ -338,11 +338,11 @@ class OrderMaking extends Activity with OrderPurchase with ScalaFunPro with Find
         )
 
       case v if v == btnOK =>
-        Log.v(TAG + " OrderMaking", "onClick btnOK ...")
+        Log.v(tagclass, "onClick btnOK ...")
         val oIntent = new Intent(this, classOf[Order])
         getIntent.hasExtra("origOrderNodeXmlString") match {
           case true =>
-            Log.v(TAG + " OrderMaking", "onClick btnOK origOrderNodeXmlString ...")
+            Log.v(tagclass, "onClick btnOK origOrderNodeXmlString ...")
             oIntent.putExtra("origOrderNodeXmlString", getIntent.getStringExtra("origOrderNodeXmlString"))
             oIntent.putExtra("back2PreOrder", "yes") // C307/vsh -- bus grįžtama į PreOrder pirkių sąrašą
           case _ =>
@@ -352,7 +352,8 @@ class OrderMaking extends Activity with OrderPurchase with ScalaFunPro with Find
         startActivity(oIntent)
 
       case v if v == btnCANCEL =>
-        startActivity(new Intent(this, classOf[Order]))
+        startActivity(new Intent(this, classOf[Order]).putExtra("groupId", getIntent.getStringExtra("groupId")))
+        //startActivity(new Intent(this, classOf[Groups]).putExtra("case", "Order"))
 
       case _ =>
     }
