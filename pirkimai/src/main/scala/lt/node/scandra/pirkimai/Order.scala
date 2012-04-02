@@ -87,8 +87,7 @@ class Order extends ListActivity with OrderPurchase /*with OnClickListener*/ {
 
       case intent if intent.hasExtra("resumeOrder") =>
         Toast.makeText(getApplicationContext, "Pirkinių sąrašo formavimas bus tęsiamas", Toast.LENGTH_LONG).show()
-        startActivity(new Intent(this, classOf[Groups]).
-          putExtra("case", "Order"))
+        startActivity(new Intent(this, classOf[PreOrder]))
 
       case intent if intent.hasExtra("createOrder") =>
         //        val dir = FileUtil.getExternalFilesDirAllApiLevels(this.getPackageName);
